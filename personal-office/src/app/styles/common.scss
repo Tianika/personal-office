@@ -1,0 +1,15 @@
+@import './variables';
+
+.wrapper {
+  max-width: 1440px;
+  padding: 20px;
+  margin: 0 auto;
+
+  @media (max-width: $tablet) {
+    padding: 15px;
+  }
+
+  @media (max-width: $mobile) {
+    padding: 10px;
+  }
+}

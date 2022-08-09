@@ -1,10 +1,14 @@
-import styles from './styles.module.css';
+import styles from './styles.module.scss';
 
 const Header = () => {
   return (
-    <header>
-      <div>logo</div>
-      <div>exit</div>
+    <header className={styles.header}>
+      <div className="wrapper">
+        <div className={styles.container}>
+          <div className={styles.logo} />
+          <div className={styles.exit} />
+        </div>
+      </div>
     </header>
   );
 };
