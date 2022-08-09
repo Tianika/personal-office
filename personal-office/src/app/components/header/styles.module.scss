@@ -1,6 +1,7 @@
 @import '../../styles/variables';
 
 .header {
+  flex: 0 0 auto;
   background-color: $baseColor;
 }
 
@@ -33,6 +34,8 @@
 }
 
 .exit {
+  background-color: transparent;
   background-image: url('../../assets/svg/exit.svg');
+  border: none;
   cursor: pointer;
 }

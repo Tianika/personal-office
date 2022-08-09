@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "user1",
+      "password": "password1"
+    },
+
+    {
+      "id": 2,
+      "name": "user2",
+      "password": "password2"
+    }
+  ],
+  "contacts": [
+    {
+      "id": "1",
+      "contacts": [
+        { "contact1": "123456" },
+        { "contact2": "456789" },
+        { "contact3": "124987" },
+        { "contact4": "325487" },
+        { "contact5": "985471" }
+      ]
+    },
+    {
+      "id": "2",
+      "contacts": [
+        { "contact1": "457895147" },
+        { "contact2": "652148256" },
+        { "contact3": "231458745" },
+        { "contact4": "256985478" },
+        { "contact5": "215874521" },
+        { "contact6": "548721554" }
+      ]
+    }
+  ]
+}
