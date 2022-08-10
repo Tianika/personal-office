@@ -16,22 +16,18 @@
     {
       "id": "1",
       "contacts": [
-        { "contact1": "123456" },
-        { "contact2": "456789" },
-        { "contact3": "124987" },
-        { "contact4": "325487" },
-        { "contact5": "985471" }
+        { "name": "contact1", "phone": "123456", "address": "Москва" },
+        { "name": "contact2", "phone": "456789", "address": "Осло" },
+        { "name": "contact3", "phone": "124987", "address": "Мале" },
+        { "name": "contact4", "phone": "325487", "address": "Пекин" }
       ]
     },
     {
       "id": "2",
       "contacts": [
-        { "contact1": "457895147" },
-        { "contact2": "652148256" },
-        { "contact3": "231458745" },
-        { "contact4": "256985478" },
-        { "contact5": "215874521" },
-        { "contact6": "548721554" }
+        { "name": "contact1", "phone": "457895147", "address": "Барселона" },
+        { "name": "contact2", "phone": "652148256", "address": "Торонто" },
+        { "name": "contact3", "phone": "231458745", "address": "Майами" }
       ]
     }
   ]

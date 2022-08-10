@@ -6,10 +6,11 @@ import {
   isRequestErrorSelector,
   isLoadingSelector,
   loginSelector,
+  userIdSelector,
 } from '../../redux/selectors/SignUpSelectors';
 import { getUser } from '../../redux/services/signUpApi';
 import { LoadingState, localStorageKeys, RoutersMap } from '../../utils/constants';
-import { ERRORS, PLACEHOLDERS } from '../../utils/locales';
+import { BUTTONS, ERRORS, PLACEHOLDERS, TITLES } from '../../utils/locales';
 import Loading from '../loading/Loading';
 import styles from './styles.module.scss';
 
@@ -19,6 +20,7 @@ const SignUpForm = () => {
   const isRequestError = useAppSelector(isRequestErrorSelector);
   const isLoading = useAppSelector(isLoadingSelector);
   const name = useAppSelector(loginSelector);
+  const userId = useAppSelector(userIdSelector);
 
   const [isDisable, setIsDisable] = useState(false);
 
@@ -39,11 +41,12 @@ const SignUpForm = () => {
   };
 
   useEffect(() => {
-    if (name) {
+    if (name && userId) {
       localStorage.setItem(localStorageKeys.login, name);
+      localStorage.setItem(localStorageKeys.userId, userId);
       navigate(RoutersMap.contacts);
     }
-  }, [name, navigate]);
+  }, [name, userId, navigate]);
 
   useEffect(() => {
     setIsDisable(isLoading === LoadingState.Loading);
@@ -51,7 +54,7 @@ const SignUpForm = () => {
 
   return (
     <>
-      <h3 className={styles.header}>Авторизация</h3>
+      <h3 className={styles.header}>{TITLES.signUp}</h3>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <input
           type="text"
@@ -69,7 +72,7 @@ const SignUpForm = () => {
         />
         <input
           type="submit"
-          value={PLACEHOLDERS.submit}
+          value={BUTTONS.submit}
           className={styles.button}
           onKeyDown={onKeyDown}
           disabled={isDisable}

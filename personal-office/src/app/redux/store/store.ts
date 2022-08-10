@@ -1,9 +1,11 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import { contactsReducer } from '../reducers/ContactsSlice';
 import { signUpReducer } from '../reducers/SignUpSlice';
 
 export const store = configureStore({
   reducer: {
     signUp: signUpReducer,
+    contacts: contactsReducer,
   },
 });
 

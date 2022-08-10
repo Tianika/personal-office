@@ -15,4 +15,5 @@ export enum LoadingState {
 
 export const localStorageKeys = {
   login: 'loginPersonalOffice',
+  userId: 'userIdPersonalOffice',
 };

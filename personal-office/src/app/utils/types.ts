@@ -8,3 +8,14 @@ export type UserData = {
   name: string;
   password: string;
 };
+
+export type ContactType = {
+  name: string;
+  phone: string;
+  address: string;
+};
+
+export type ContactsType = {
+  id: string;
+  contacts: Array<ContactType>;
+};

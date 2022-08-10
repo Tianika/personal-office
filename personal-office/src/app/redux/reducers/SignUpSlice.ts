@@ -26,6 +26,9 @@ const signUpSlice = createSlice({
     setLogin(state, action: PayloadAction<string>) {
       state.login = action.payload;
     },
+    setUserId(state, action: PayloadAction<string>) {
+      state.userId = action.payload;
+    },
   },
   extraReducers: {
     [getUser.pending.type]: (state) => {
@@ -52,4 +55,4 @@ const signUpSlice = createSlice({
 });
 
 export const signUpReducer = signUpSlice.reducer;
-export const { setLogin } = signUpSlice.actions;
+export const { setLogin, setUserId } = signUpSlice.actions;

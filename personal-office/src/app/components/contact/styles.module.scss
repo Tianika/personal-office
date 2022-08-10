@@ -1,14 +1,7 @@
 @import '../../styles/variables';
 
-.page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  min-height: 100%;
-}
-
 .container {
+  font-size: $fontBase;
   padding: 5px;
 
   @media (max-width: $tablet) {
@@ -16,4 +9,12 @@
 
   @media (max-width: $mobile) {
   }
+}
+
+.item {
+  padding: 2px;
+}
+
+.input {
+  display: block;
 }

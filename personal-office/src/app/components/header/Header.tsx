@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks/reduxHooks';
 import { setLogin } from '../../redux/reducers/SignUpSlice';
 import { loginSelector } from '../../redux/selectors/SignUpSelectors';
 import { localStorageKeys, RoutersMap } from '../../utils/constants';
+import { TITLES } from '../../utils/locales';
 import styles from './styles.module.scss';
 
 const Header = () => {
@@ -23,7 +24,7 @@ const Header = () => {
         <div className={styles.container}>
           <div className={styles.left}>
             <div className={styles.logo} />
-            <h1 className={styles.title}>Personal Office</h1>
+            <h1 className={styles.title}>{TITLES.header}</h1>
           </div>
           {Boolean(login) && (
             <div className={styles.right}>
