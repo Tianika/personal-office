@@ -12,6 +12,6 @@ export const isRequestErrorSelector = (state: RootState) => {
   return state.signUp.isRequestError;
 };
 
-export const isLoginSelector = (state: RootState) => {
-  return state.signUp.isLogin;
+export const isLoadingSelector = (state: RootState) => {
+  return state.signUp.isLoading;
 };

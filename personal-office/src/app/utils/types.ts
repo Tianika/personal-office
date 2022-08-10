@@ -3,6 +3,8 @@ export type SignUpData = {
   password: string;
 };
 
-export type UserData = SignUpData & {
+export type UserData = {
   id: string;
+  name: string;
+  password: string;
 };

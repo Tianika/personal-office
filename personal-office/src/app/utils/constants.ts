@@ -12,3 +12,7 @@ export enum LoadingState {
   Success = 'success',
   Error = 'Error',
 }
+
+export const localStorageKeys = {
+  login: 'loginPersonalOffice',
+};

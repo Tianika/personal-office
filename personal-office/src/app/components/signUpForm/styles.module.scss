@@ -7,7 +7,6 @@
   padding: 10px;
   gap: 20px;
   font-size: $fontBase;
-  line-height: $lineHeightBase;
 
   p {
     color: $error;
@@ -15,7 +14,7 @@
 }
 
 .header {
-  font-size: 28px;
+  font-size: $fontTitle;
   margin-bottom: 20px;
 }
 
@@ -26,10 +25,9 @@
 }
 
 .button {
-  font-size: $fontBase;
+  font-size: $fontTitle;
   font-weight: 700;
   color: $lightFont;
-  text-transform: uppercase;
   background-color: $baseColor;
   border: none;
   border-radius: 5px;
@@ -37,8 +35,14 @@
   padding: 10px 20px;
   margin-top: 20px;
   cursor: pointer;
+  transition: 300ms all;
 
   &:disabled {
     background-color: $disableBtn;
+  }
+
+  &:hover {
+    background-color: $hoverBtn;
+    transform: scale(1.1);
   }
 }

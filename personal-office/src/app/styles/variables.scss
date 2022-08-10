@@ -4,10 +4,11 @@ $darkFont: #000000;
 $lightFont: #ffffff;
 $error: #ee0000;
 $disableBtn: #505050;
+$hoverBtn: #50db00;
 
 $mobile: 480px;
 $tablet: 720px;
 $desktop: 1280px;
 
-$fontBase: 20px;
-$lineHeightBase: 24px;
+$fontBase: clamp(16px, 3vw, 20px);
+$fontTitle: clamp(22px, 4vw, 26px);

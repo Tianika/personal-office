@@ -8,7 +8,6 @@ type SignUpState = {
   userId: string;
   errorMessage: string;
   isRequestError: boolean;
-  isLogin: boolean;
   isLoading: LoadingState;
 };
 
@@ -17,14 +16,17 @@ const initialState: SignUpState = {
   userId: '',
   errorMessage: '',
   isRequestError: false,
-  isLogin: false,
   isLoading: LoadingState.Initial,
 };
 
 const signUpSlice = createSlice({
   name: 'signUp',
   initialState,
-  reducers: {},
+  reducers: {
+    setLogin(state, action: PayloadAction<string>) {
+      state.login = action.payload;
+    },
+  },
   extraReducers: {
     [getUser.pending.type]: (state) => {
       state.isLoading = LoadingState.Loading;
@@ -34,11 +36,10 @@ const signUpSlice = createSlice({
       state.isLoading = LoadingState.Success;
 
       if (action.payload) {
-        const { id, login } = action.payload;
+        const { id, name } = action.payload;
 
         state.userId = id;
-        state.login = login;
-        state.isLogin = true;
+        state.login = name;
       } else {
         state.isRequestError = true;
       }
@@ -51,3 +52,4 @@ const signUpSlice = createSlice({
 });
 
 export const signUpReducer = signUpSlice.reducer;
+export const { setLogin } = signUpSlice.actions;

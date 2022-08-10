@@ -7,8 +7,11 @@ import { RoutersMap } from './utils/constants';
 import styles from './styles.module.scss';
 import './styles/reset.scss';
 import './styles/common.scss';
+import { useGetLocalStorageValue } from './hooks/useGetLocalStorageValue';
 
 const App = () => {
+  useGetLocalStorageValue();
+
   return (
     <div className={styles.app}>
       <Header />
