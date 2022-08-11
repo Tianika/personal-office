@@ -41,7 +41,14 @@ const Contact = ({ contactId, name, phone, address, userId }: ContactPropsType) 
   };
 
   const onDeleteContact = () => {
-    console.log('delete');
+    const newContacts = contacts.filter((contact) => contact.contactId !== contactId);
+
+    dispatch(
+      editContacts({
+        userId,
+        list: newContacts,
+      })
+    );
   };
 
   const onCancelEdit = () => {

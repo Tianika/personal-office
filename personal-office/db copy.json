@@ -14,7 +14,7 @@
   "contacts": [
     {
       "id": "1",
-      "list": [
+      "contact": [
         {
           "contactId": "1",
           "name": "contact1",
@@ -23,7 +23,7 @@
         },
         {
           "contactId": "2",
-          "name": "contact21",
+          "name": "contact2",
           "phone": "456789",
           "address": "Осло"
         },
@@ -43,36 +43,24 @@
     },
     {
       "id": "2",
-      "list": [
+      "contact": [
         {
           "contactId": "1",
-          "name": "contact12",
-          "phone": "54315435",
-          "address": "Барселона "
+          "name": "contact1",
+          "phone": "457895147",
+          "address": "Барселона"
         },
         {
           "contactId": "2",
           "name": "contact2",
-          "phone": "652148256213",
-          "address": "Нью-Йорк"
+          "phone": "652148256",
+          "address": "Торонто"
         },
         {
           "contactId": "3",
           "name": "contact3",
           "phone": "231458745",
           "address": "Майами"
-        },
-        {
-          "contactId": "4",
-          "name": "Louvre",
-          "phone": "65214825621",
-          "address": "Париж"
-        },
-        {
-          "contactId": "5",
-          "name": "contact123",
-          "phone": "65214825621",
-          "address": "Нью-Йорк"
         }
       ]
     }
