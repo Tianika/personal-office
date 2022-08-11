@@ -1,6 +1,8 @@
 export const PLACEHOLDERS = {
   name: 'Введите имя',
   password: 'Введите пароль',
+  phone: 'Введите телефон',
+  address: 'Введите адрес',
 };
 
 export const ERRORS = {
@@ -22,4 +24,6 @@ export const BUTTONS = {
   confirm: 'Сохранить',
   cancel: 'Отменить',
   delete: 'Удалить',
+  create: 'Создать',
+  reset: 'Очистить',
 };

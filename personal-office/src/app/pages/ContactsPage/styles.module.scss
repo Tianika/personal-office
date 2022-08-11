@@ -8,12 +8,15 @@
   min-height: 100%;
 }
 
+.title {
+  font-size: $fontTitle;
+  margin-bottom: 15px;
+}
+
 .container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
   padding: 5px;
-
-  @media (max-width: $tablet) {
-  }
-
-  @media (max-width: $mobile) {
-  }
 }

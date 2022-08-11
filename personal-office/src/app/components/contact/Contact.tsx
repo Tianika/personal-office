@@ -3,7 +3,7 @@ import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/reduxHooks';
 import { contactsSelector } from '../../redux/selectors/ContactsSelectors';
 import { editContacts } from '../../redux/services/contactsApi';
-import { BUTTONS } from '../../utils/locales';
+import { BUTTONS, PLACEHOLDERS } from '../../utils/locales';
 import { ContactPropsType } from '../../utils/types';
 import styles from './styles.module.scss';
 
@@ -26,7 +26,6 @@ const Contact = ({ contactId, name, phone, address, userId }: ContactPropsType) 
         ? { contactId, name: data.name, phone: data.phone, address: data.address }
         : contact;
     });
-    console.log(newContacts);
 
     setIsEdit(false);
     dispatch(
@@ -58,11 +57,9 @@ const Contact = ({ contactId, name, phone, address, userId }: ContactPropsType) 
     <div className={styles.container}>
       {!isEdit && (
         <>
-          <div className={styles.data}>
-            <div className={styles.item}>Имя: {name}</div>
-            <div className={styles.item}>Телефон: {phone}</div>
-            <div className={styles.item}>Адрес: {address}</div>
-          </div>
+          <div className={styles.item}>Имя: {name}</div>
+          <div className={styles.item}>Телефон: {phone}</div>
+          <div className={styles.item}>Адрес: {address}</div>
           <div className={styles.buttons}>
             <input type="button" value={BUTTONS.edit} onClick={onEditContact} />
             <input type="button" value={BUTTONS.delete} onClick={onDeleteContact} />
@@ -76,6 +73,7 @@ const Contact = ({ contactId, name, phone, address, userId }: ContactPropsType) 
             type="text"
             {...register('name', { required: true })}
             defaultValue={name}
+            placeholder={PLACEHOLDERS.name}
           />
           <input
             className={styles.input}
@@ -84,6 +82,7 @@ const Contact = ({ contactId, name, phone, address, userId }: ContactPropsType) 
               required: true,
             })}
             defaultValue={phone}
+            placeholder={PLACEHOLDERS.phone}
           />
           <input
             className={styles.input}
@@ -92,10 +91,12 @@ const Contact = ({ contactId, name, phone, address, userId }: ContactPropsType) 
               required: true,
             })}
             defaultValue={address}
+            placeholder={PLACEHOLDERS.address}
           />
-
-          <input type="submit" value={BUTTONS.confirm} />
-          <input type="button" value={BUTTONS.cancel} onClick={onCancelEdit} />
+          <div className={styles.buttons}>
+            <input type="submit" value={BUTTONS.confirm} />
+            <input type="button" value={BUTTONS.cancel} onClick={onCancelEdit} />
+          </div>
         </form>
       )}
     </div>

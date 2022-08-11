@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import Contact from '../../components/contact/Contact';
 import Loading from '../../components/loading/Loading';
+import NewContact from '../../components/newContact/NewContact';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/reduxHooks';
 import { contactsSelector, isLoadingSelector } from '../../redux/selectors/ContactsSelectors';
 import { userIdSelector } from '../../redux/selectors/SignUpSelectors';
@@ -24,8 +25,8 @@ const ContactsPage = () => {
   return (
     <div className={styles.page}>
       <div className="wrapper">
+        <h3 className={styles.title}>{TITLES.contacts}</h3>
         <div className={styles.container}>
-          <h3>{TITLES.contacts}</h3>
           {contacts.length > 0 &&
             contacts.map(({ contactId, name, phone, address }) => {
               return (
@@ -40,6 +41,7 @@ const ContactsPage = () => {
               );
             })}
           {contacts.length === 0 && <h4>{TITLES.notFound}</h4>}
+          <NewContact userId={userId} />
           {isLoading === LoadingState.Loading && <Loading />}
         </div>
       </div>
