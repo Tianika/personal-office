@@ -11,12 +11,10 @@ const Contact = ({ contactId, name, phone, address, userId }: ContactPropsType) 
   const dispatch = useAppDispatch();
   const contacts = useAppSelector(contactsSelector);
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm({ mode: 'onSubmit', reValidateMode: 'onSubmit' });
+  const { register, handleSubmit, reset } = useForm({
+    mode: 'onSubmit',
+    reValidateMode: 'onSubmit',
+  });
 
   const [isEdit, setIsEdit] = useState(false);
 

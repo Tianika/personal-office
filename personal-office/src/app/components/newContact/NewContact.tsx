@@ -10,12 +10,10 @@ const NewContact = ({ userId }: { userId: string }) => {
   const dispatch = useAppDispatch();
   const contacts = useAppSelector(contactsSelector);
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm({ mode: 'onSubmit', reValidateMode: 'onSubmit' });
+  const { register, handleSubmit, reset } = useForm({
+    mode: 'onSubmit',
+    reValidateMode: 'onSubmit',
+  });
 
   const onReset = () => {
     reset({
@@ -26,7 +24,8 @@ const NewContact = ({ userId }: { userId: string }) => {
   };
 
   const onSubmit: SubmitHandler<FieldValues> = ({ name, phone, address }) => {
-    const newId = (Number(contacts[contacts.length - 1].contactId) + 1).toString();
+    const lastId = contacts.length ? contacts[contacts.length - 1].contactId : '0';
+    const newId = (Number(lastId) + 1).toString();
     const newContacts: Array<ContactType> = [
       ...contacts,
       {

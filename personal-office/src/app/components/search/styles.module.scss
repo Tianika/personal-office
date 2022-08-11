@@ -1,0 +1,31 @@
+@import '../../styles/variables';
+
+.container {
+  margin-bottom: 20px;
+}
+
+.form {
+  :last-child {
+    &:hover {
+      background-color: $error;
+    }
+  }
+}
+
+.button {
+  padding: 5px 10px;
+  margin-left: 15px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: all 300ms;
+
+  &:hover {
+    color: $lightFont;
+    background-color: $hoverBtn;
+  }
+}
+
+.input {
+  padding: 2px 10px;
+}

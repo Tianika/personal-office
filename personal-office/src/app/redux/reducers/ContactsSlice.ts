@@ -5,6 +5,7 @@ import { editContacts, getContacts } from '../services/contactsApi';
 
 type ContactsState = {
   contacts: Array<ContactType>;
+  findContacts: string;
   errorMessage: string;
   isRequestError: boolean;
   isLoading: LoadingState;
@@ -12,6 +13,7 @@ type ContactsState = {
 
 const initialState: ContactsState = {
   contacts: [],
+  findContacts: '',
   errorMessage: '',
   isRequestError: false,
   isLoading: LoadingState.Initial,
@@ -20,7 +22,11 @@ const initialState: ContactsState = {
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
-  reducers: {},
+  reducers: {
+    changeFindContacts(state, action: PayloadAction<string>) {
+      state.findContacts = action.payload;
+    },
+  },
   extraReducers: {
     [getContacts.pending.type]: (state) => {
       state.isLoading = LoadingState.Loading;
@@ -57,3 +63,4 @@ const contactsSlice = createSlice({
 });
 
 export const contactsReducer = contactsSlice.reducer;
+export const { changeFindContacts } = contactsSlice.actions;

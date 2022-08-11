@@ -3,6 +3,7 @@ export const PLACEHOLDERS = {
   password: 'Введите пароль',
   phone: 'Введите телефон',
   address: 'Введите адрес',
+  find: 'Поиск по всем полям',
 };
 
 export const ERRORS = {
@@ -26,4 +27,5 @@ export const BUTTONS = {
   delete: 'Удалить',
   create: 'Создать',
   reset: 'Очистить',
+  find: 'Найти',
 };
