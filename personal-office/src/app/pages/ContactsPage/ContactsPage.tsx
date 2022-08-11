@@ -27,9 +27,16 @@ const ContactsPage = () => {
         <div className={styles.container}>
           <h3>{TITLES.contacts}</h3>
           {contacts.length > 0 &&
-            contacts.map(({ name, phone, address }) => {
+            contacts.map(({ contactId, name, phone, address }) => {
               return (
-                <Contact key={name + phone + address} name={name} phone={phone} address={address} />
+                <Contact
+                  key={name + phone + address}
+                  contactId={contactId}
+                  name={name}
+                  phone={phone}
+                  address={address}
+                  userId={userId}
+                />
               );
             })}
           {contacts.length === 0 && <h4>{TITLES.notFound}</h4>}

@@ -19,7 +19,7 @@ export const TITLES = {
 export const BUTTONS = {
   submit: 'Войти',
   edit: 'Редактировать',
-  confirm: 'Да',
-  cancel: 'Нет',
+  confirm: 'Сохранить',
+  cancel: 'Отменить',
   delete: 'Удалить',
 };

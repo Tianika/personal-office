@@ -10,6 +10,7 @@ export type UserData = {
 };
 
 export type ContactType = {
+  contactId: string;
   name: string;
   phone: string;
   address: string;
@@ -17,5 +18,14 @@ export type ContactType = {
 
 export type ContactsType = {
   id: string;
-  contacts: Array<ContactType>;
+  list: Array<ContactType>;
+};
+
+export type ContactPropsType = ContactType & {
+  userId: string;
+};
+
+export type ContactsPropsType = {
+  userId: string;
+  list: Array<ContactType>;
 };

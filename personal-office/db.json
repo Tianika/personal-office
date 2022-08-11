@@ -5,7 +5,6 @@
       "name": "user1",
       "password": "password1"
     },
-
     {
       "id": 2,
       "name": "user2",
@@ -15,19 +14,54 @@
   "contacts": [
     {
       "id": "1",
-      "contacts": [
-        { "name": "contact1", "phone": "123456", "address": "Москва" },
-        { "name": "contact2", "phone": "456789", "address": "Осло" },
-        { "name": "contact3", "phone": "124987", "address": "Мале" },
-        { "name": "contact4", "phone": "325487", "address": "Пекин" }
+      "list": [
+        {
+          "contactId": "1",
+          "name": "contact1",
+          "phone": "123456",
+          "address": "Москва"
+        },
+        {
+          "contactId": "2",
+          "name": "contact2",
+          "phone": "456789",
+          "address": "Осло"
+        },
+        {
+          "contactId": "3",
+          "name": "contact3",
+          "phone": "124987",
+          "address": "Мале"
+        },
+        {
+          "contactId": "4",
+          "name": "contact4",
+          "phone": "325487",
+          "address": "Пекин"
+        }
       ]
     },
     {
       "id": "2",
-      "contacts": [
-        { "name": "contact1", "phone": "457895147", "address": "Барселона" },
-        { "name": "contact2", "phone": "652148256", "address": "Торонто" },
-        { "name": "contact3", "phone": "231458745", "address": "Майами" }
+      "list": [
+        {
+          "contactId": "1",
+          "name": "contact111",
+          "phone": "457895147",
+          "address": "Барселона"
+        },
+        {
+          "contactId": "2",
+          "name": "contact223",
+          "phone": "65214825621321",
+          "address": "Нью-Йорк"
+        },
+        {
+          "contactId": "3",
+          "name": "contact3",
+          "phone": "231458745",
+          "address": "Майами"
+        }
       ]
     }
   ]

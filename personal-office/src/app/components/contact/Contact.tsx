@@ -1,26 +1,40 @@
 import { useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/reduxHooks';
+import { contactsSelector } from '../../redux/selectors/ContactsSelectors';
+import { editContacts } from '../../redux/services/contactsApi';
 import { BUTTONS } from '../../utils/locales';
-import { ContactType } from '../../utils/types';
-// import { setLogin } from '../../redux/reducers/SignUpSlice';
-// import { loginSelector } from '../../redux/selectors/SignUpSelectors';
+import { ContactPropsType } from '../../utils/types';
 import styles from './styles.module.scss';
 
-const Contact = ({ name, phone, address }: ContactType) => {
+const Contact = ({ contactId, name, phone, address, userId }: ContactPropsType) => {
   const dispatch = useAppDispatch();
+  const contacts = useAppSelector(contactsSelector);
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({ mode: 'onSubmit', reValidateMode: 'onSubmit' });
 
   const [isEdit, setIsEdit] = useState(false);
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    const newContacts = contacts.map((contact) => {
+      return contact.contactId === contactId
+        ? { contactId, name: data.name, phone: data.phone, address: data.address }
+        : contact;
+    });
+    console.log(newContacts);
+
     setIsEdit(false);
-    console.log(data);
+    dispatch(
+      editContacts({
+        userId,
+        list: newContacts,
+      })
+    );
   };
 
   const onEditContact = () => {
@@ -31,7 +45,12 @@ const Contact = ({ name, phone, address }: ContactType) => {
     console.log('delete');
   };
 
-  const cancelEdit = () => {
+  const onCancelEdit = () => {
+    reset({
+      name,
+      phone,
+      address,
+    });
     setIsEdit(false);
   };
 
@@ -76,7 +95,7 @@ const Contact = ({ name, phone, address }: ContactType) => {
           />
 
           <input type="submit" value={BUTTONS.confirm} />
-          <input type="button" value={BUTTONS.cancel} onClick={cancelEdit} />
+          <input type="button" value={BUTTONS.cancel} onClick={onCancelEdit} />
         </form>
       )}
     </div>

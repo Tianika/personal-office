@@ -30,7 +30,7 @@ const contactsSlice = createSlice({
       state.isLoading = LoadingState.Success;
 
       if (action.payload) {
-        state.contacts = action.payload.contacts;
+        state.contacts = action.payload.list;
       }
     },
     [getContacts.rejected.type]: (state, action: PayloadAction<string>) => {

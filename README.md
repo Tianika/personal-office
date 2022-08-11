@@ -10,4 +10,9 @@ $ npm install
 
 $ npm start
 
+# Server
+json-server db.json -p 3001
+
+# Node
 Node v16.16.0
+
