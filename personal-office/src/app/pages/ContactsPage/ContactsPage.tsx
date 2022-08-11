@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import Contact from '../../components/contact/Contact';
 import Loading from '../../components/loading/Loading';
+import Modal from '../../components/modal/Modal';
 import NewContact from '../../components/newContact/NewContact';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/reduxHooks';
 import { contactsSelector, isLoadingSelector } from '../../redux/selectors/ContactsSelectors';
@@ -42,7 +43,11 @@ const ContactsPage = () => {
             })}
           {contacts.length === 0 && <h4>{TITLES.notFound}</h4>}
           <NewContact userId={userId} />
-          {isLoading === LoadingState.Loading && <Loading />}
+          {isLoading === LoadingState.Loading && (
+            <Modal>
+              <Loading />
+            </Modal>
+          )}
         </div>
       </div>
     </div>

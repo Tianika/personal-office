@@ -65,14 +65,8 @@
         {
           "contactId": "4",
           "name": "Louvre",
-          "phone": "65214825621",
+          "phone": "54315435",
           "address": "Париж"
-        },
-        {
-          "contactId": "5",
-          "name": "contact123",
-          "phone": "65214825621",
-          "address": "Нью-Йорк"
         }
       ]
     }
