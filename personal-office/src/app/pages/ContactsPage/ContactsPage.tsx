@@ -22,7 +22,7 @@ const ContactsPage = () => {
     if (userId) {
       dispatch(getContacts({ userId }));
     }
-  }, [userId, dispatch]);
+  }, []);
 
   return (
     <div className={styles.page}>

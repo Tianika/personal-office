@@ -1,7 +1,6 @@
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { useAppDispatch } from '../../redux/hooks/reduxHooks';
 import { changeFindContacts } from '../../redux/reducers/ContactsSlice';
-
 import { BUTTONS, PLACEHOLDERS } from '../../utils/locales';
 import styles from './styles.module.scss';
 

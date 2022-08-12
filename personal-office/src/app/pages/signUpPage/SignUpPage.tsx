@@ -1,4 +1,4 @@
-import AuthorizationForm from '../../components/signUpForm/SignUpForm';
+import SignUpForm from '../../components/signUpForm/SignUpForm';
 import styles from './styles.module.scss';
 
 const SignUpPage = () => {
@@ -6,7 +6,7 @@ const SignUpPage = () => {
     <div className={styles.authorization}>
       <div className="wrapper">
         <div className={styles.container}>
-          <AuthorizationForm />
+          <SignUpForm />
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/reduxHooks';
-import { setLogin } from '../../redux/reducers/SignUpSlice';
+import { setLogin, setUserId } from '../../redux/reducers/SignUpSlice';
 import { loginSelector } from '../../redux/selectors/SignUpSelectors';
 import { localStorageKeys, RoutersMap } from '../../utils/constants';
 import { TITLES } from '../../utils/locales';
@@ -13,8 +13,10 @@ const Header = () => {
   const login = useAppSelector(loginSelector);
 
   const onClick = () => {
-    dispatch(setLogin(''));
     localStorage.removeItem(localStorageKeys.login);
+    dispatch(setLogin(''));
+    dispatch(setUserId(''));
+
     navigate(RoutersMap.welcome);
   };
 

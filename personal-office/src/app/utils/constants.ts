@@ -1,5 +1,5 @@
 export const RoutersMap = {
-  welcome: '',
+  welcome: '/',
   contacts: '/contacts',
   notFound: '*',
 };
