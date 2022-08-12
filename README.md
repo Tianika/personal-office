@@ -18,4 +18,5 @@ Node v16.16.0
 
 # Users
 user1 password1
+
 user2 password2
