@@ -15,3 +15,7 @@ export const isRequestErrorSelector = (state: RootState) => {
 export const isLoadingSelector = (state: RootState) => {
   return state.signUp.isLoading;
 };
+
+export const errorMessageSelector = (state: RootState) => {
+  return state.signUp.errorMessage;
+};

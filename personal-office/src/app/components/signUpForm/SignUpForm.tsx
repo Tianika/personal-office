@@ -7,11 +7,13 @@ import {
   isLoadingSelector,
   loginSelector,
   userIdSelector,
+  errorMessageSelector,
 } from '../../redux/selectors/SignUpSelectors';
 import { getUser } from '../../redux/services/signUpApi';
 import { LoadingState, localStorageKeys, RoutersMap } from '../../utils/constants';
 import { BUTTONS, ERRORS, PLACEHOLDERS, TITLES } from '../../utils/locales';
 import Loading from '../loading/Loading';
+import RequestError from '../requestError/requestError';
 import styles from './styles.module.scss';
 
 const SignUpForm = () => {
@@ -21,6 +23,7 @@ const SignUpForm = () => {
   const isLoading = useAppSelector(isLoadingSelector);
   const name = useAppSelector(loginSelector);
   const userId = useAppSelector(userIdSelector);
+  const requestError = useAppSelector(errorMessageSelector);
 
   const [isDisable, setIsDisable] = useState(false);
 
@@ -78,6 +81,7 @@ const SignUpForm = () => {
           disabled={isDisable}
         />
         {isLoading === LoadingState.Loading && <Loading />}
+        {requestError && <RequestError message={requestError} />}
         {errors.login && <p>{errors.login.message as ReactNode}</p>}
         {errors.password && <p>{errors.password.message as ReactNode}</p>}
         {isRequestError && <p>{ERRORS.request}</p>}
