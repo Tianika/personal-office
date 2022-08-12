@@ -2,11 +2,32 @@ import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/reduxHooks';
 import { contactsSelector } from '../../redux/selectors/ContactsSelectors';
 import { editContacts } from '../../redux/services/contactsApi';
-import { BUTTONS, PLACEHOLDERS } from '../../utils/locales';
-import { ContactType } from '../../utils/types';
+import { BUTTONS, PLACEHOLDERS, TITLES } from '../../utils/locales';
+import { ButtonsDataType, ContactType, InputsDataType } from '../../utils/types';
+import ContactForm from '../contactForm/ContactForm';
 import styles from './styles.module.scss';
 
-const NewContact = ({ userId }: { userId: string }) => {
+type NewContactPropsType = { userId: string };
+
+const inputsData: InputsDataType = {
+  name: {
+    name: 'name',
+    value: '',
+    placeholder: PLACEHOLDERS.name,
+  },
+  phone: {
+    name: 'phone',
+    value: '',
+    placeholder: PLACEHOLDERS.phone,
+  },
+  address: {
+    name: 'address',
+    value: '',
+    placeholder: PLACEHOLDERS.address,
+  },
+};
+
+const NewContact = ({ userId }: NewContactPropsType) => {
   const dispatch = useAppDispatch();
   const contacts = useAppSelector(contactsSelector);
 
@@ -46,37 +67,26 @@ const NewContact = ({ userId }: { userId: string }) => {
     onReset();
   };
 
+  const buttonsData: ButtonsDataType = {
+    submit: {
+      value: BUTTONS.create,
+    },
+    cancel: {
+      value: BUTTONS.reset,
+      onClick: onReset,
+    },
+  };
+
   return (
-    <div className={styles.container}>
-      <h4>Добавить контакт: </h4>
-      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-        <input
-          className={styles.input}
-          type="text"
-          {...register('name', { required: true })}
-          placeholder={PLACEHOLDERS.name}
-        />
-        <input
-          className={styles.input}
-          type="text"
-          {...register('phone', {
-            required: true,
-          })}
-          placeholder={PLACEHOLDERS.phone}
-        />
-        <input
-          className={styles.input}
-          type="text"
-          {...register('address', {
-            required: true,
-          })}
-          placeholder={PLACEHOLDERS.address}
-        />
-        <div className={styles.buttons}>
-          <input type="submit" value={BUTTONS.create} />
-          <input type="button" value={BUTTONS.reset} onClick={onReset} />
-        </div>
-      </form>
+    <div className="contact-form-container">
+      <h4 className={styles.title}>{TITLES.addContact}</h4>
+
+      <ContactForm
+        onSubmit={handleSubmit(onSubmit)}
+        register={register}
+        inputsData={inputsData}
+        buttonsData={buttonsData}
+      />
     </div>
   );
 };

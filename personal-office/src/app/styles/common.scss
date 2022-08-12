@@ -14,3 +14,20 @@
     padding: 10px;
   }
 }
+
+.contact-form-container {
+  width: 400px;
+  min-height: 200px;
+  font-size: $fontBase;
+  padding: 10px;
+  border: 2px solid $baseColor;
+  border-radius: 5px;
+
+  @media (max-width: $tablet) {
+    width: 350px;
+  }
+
+  @media (max-width: $mobile) {
+    width: 280px;
+  }
+}

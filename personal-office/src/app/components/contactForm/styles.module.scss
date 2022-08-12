@@ -1,0 +1,13 @@
+@import '../../styles/variables';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
+
+.input {
+  display: block;
+  padding: 0 10px;
+}

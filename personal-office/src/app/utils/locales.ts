@@ -17,6 +17,7 @@ export const TITLES = {
   signUp: 'Авторизация',
   contacts: 'Мои контакты',
   notFound: 'Контакты не найдены',
+  addContact: 'Добавить контакт:',
 };
 
 export const BUTTONS = {

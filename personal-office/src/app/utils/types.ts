@@ -29,3 +29,21 @@ export type ContactsPropsType = {
   userId: string;
   list: Array<ContactType>;
 };
+
+export type InputType = {
+  name: string;
+  value: string;
+  placeholder: string;
+};
+
+export type InputsDataType = Record<string, InputType>;
+
+export type ButtonType = {
+  value: string;
+  onClick?: () => void;
+};
+
+export type ButtonsDataType = {
+  submit: ButtonType;
+  cancel: ButtonType;
+};

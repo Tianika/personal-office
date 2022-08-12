@@ -4,7 +4,9 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks/reduxHooks';
 import { contactsSelector } from '../../redux/selectors/ContactsSelectors';
 import { editContacts } from '../../redux/services/contactsApi';
 import { BUTTONS, PLACEHOLDERS } from '../../utils/locales';
-import { ContactPropsType } from '../../utils/types';
+import { ButtonsDataType, ContactPropsType, InputsDataType } from '../../utils/types';
+import ButtonsForForm from '../buttonsForForm/ButtonsForForm';
+import ContactForm from '../contactForm/ContactForm';
 import styles from './styles.module.scss';
 
 const Contact = ({ contactId, name, phone, address, userId }: ContactPropsType) => {
@@ -49,7 +51,7 @@ const Contact = ({ contactId, name, phone, address, userId }: ContactPropsType) 
     );
   };
 
-  const onCancelEdit = () => {
+  const onReset = () => {
     reset({
       name,
       phone,
@@ -58,51 +60,62 @@ const Contact = ({ contactId, name, phone, address, userId }: ContactPropsType) 
     setIsEdit(false);
   };
 
+  const inputsData: InputsDataType = {
+    name: {
+      name: 'name',
+      value: name,
+      placeholder: PLACEHOLDERS.name,
+    },
+    phone: {
+      name: 'phone',
+      value: phone,
+      placeholder: PLACEHOLDERS.phone,
+    },
+    address: {
+      name: 'address',
+      value: address,
+      placeholder: PLACEHOLDERS.address,
+    },
+  };
+
+  const viewButtonsData: ButtonsDataType = {
+    submit: {
+      value: BUTTONS.edit,
+      onClick: onEditContact,
+    },
+    cancel: {
+      value: BUTTONS.delete,
+      onClick: onDeleteContact,
+    },
+  };
+
+  const editButtonsData: ButtonsDataType = {
+    submit: {
+      value: BUTTONS.confirm,
+    },
+    cancel: {
+      value: BUTTONS.cancel,
+      onClick: onReset,
+    },
+  };
+
   return (
-    <div className={styles.container}>
+    <div className="contact-form-container">
       {!isEdit && (
         <>
           <div className={styles.item}>Имя: {name}</div>
           <div className={styles.item}>Телефон: {phone}</div>
           <div className={styles.item}>Адрес: {address}</div>
-          <div className={styles.buttons}>
-            <input type="button" value={BUTTONS.edit} onClick={onEditContact} />
-            <input type="button" value={BUTTONS.delete} onClick={onDeleteContact} />
-          </div>
+          <ButtonsForForm buttonsData={viewButtonsData} />
         </>
       )}
       {isEdit && (
-        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-          <input
-            className={styles.input}
-            type="text"
-            {...register('name', { required: true })}
-            defaultValue={name}
-            placeholder={PLACEHOLDERS.name}
-          />
-          <input
-            className={styles.input}
-            type="text"
-            {...register('phone', {
-              required: true,
-            })}
-            defaultValue={phone}
-            placeholder={PLACEHOLDERS.phone}
-          />
-          <input
-            className={styles.input}
-            type="text"
-            {...register('address', {
-              required: true,
-            })}
-            defaultValue={address}
-            placeholder={PLACEHOLDERS.address}
-          />
-          <div className={styles.buttons}>
-            <input type="submit" value={BUTTONS.confirm} />
-            <input type="button" value={BUTTONS.cancel} onClick={onCancelEdit} />
-          </div>
-        </form>
+        <ContactForm
+          onSubmit={handleSubmit(onSubmit)}
+          register={register}
+          inputsData={inputsData}
+          buttonsData={editButtonsData}
+        />
       )}
     </div>
   );

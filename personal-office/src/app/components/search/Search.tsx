@@ -2,6 +2,8 @@ import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { useAppDispatch } from '../../redux/hooks/reduxHooks';
 import { changeFindContacts } from '../../redux/reducers/ContactsSlice';
 import { BUTTONS, PLACEHOLDERS } from '../../utils/locales';
+import { ButtonsDataType } from '../../utils/types';
+import ButtonsForForm from '../buttonsForForm/ButtonsForForm';
 import styles from './styles.module.scss';
 
 const Search = () => {
@@ -23,6 +25,16 @@ const Search = () => {
     dispatch(changeFindContacts(field));
   };
 
+  const buttonsData: ButtonsDataType = {
+    submit: {
+      value: BUTTONS.find,
+    },
+    cancel: {
+      value: BUTTONS.reset,
+      onClick: onReset,
+    },
+  };
+
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -32,8 +44,7 @@ const Search = () => {
           {...register('field', { required: true })}
           placeholder={PLACEHOLDERS.find}
         />
-        <input className={styles.button} type="submit" value={BUTTONS.find} />
-        <input className={styles.button} type="button" value={BUTTONS.reset} onClick={onReset} />
+        <ButtonsForForm buttonsData={buttonsData} />
       </form>
     </div>
   );
