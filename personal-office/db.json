@@ -38,6 +38,12 @@
           "name": "contact4",
           "phone": "325487",
           "address": "Пекин"
+        },
+        {
+          "contactId": "5",
+          "name": "contact111",
+          "phone": "65214825621321",
+          "address": "Барселона "
         }
       ]
     },
